@@ -1,0 +1,22 @@
+﻿<Properties StartupConfiguration="{3E8CDF7D-CC63-4A2F-965B-9F509F133273}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.Camera PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
+    <Files>
+      <File FileName="Program.cs" Line="22" Column="3" />
+      <File FileName="PixelColor.cs" Line="90" Column="98" />
+      <File FileName="Robot.cs" Line="117" Column="35" />
+      <File FileName="ConnectControl.cs" Line="1" Column="1" />
+      <File FileName="ConnectControl.Designer.cs" Line="1" Column="1" />
+      <File FileName="DriveControl.cs" Line="12" Column="64" />
+      <File FileName="DriveControl.Designer.cs" Line="1" Column="1" />
+      <File FileName="CameraControl.cs" Line="63" Column="58" />
+      <File FileName="CameraControl.Designer.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+</Properties>
