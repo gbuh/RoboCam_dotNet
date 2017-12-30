@@ -52,18 +52,18 @@ namespace rec.robotino.api2.examples.camera
         {
             base.OnPaint(e);
 
-//			if (img != null) // && !pixelColor.robotLaserSpot(img)
-			//if (pixelColor.isLaserSpot()) //  
-			//	{
-			//		e.Graphics.DrawImage(img, new Rectangle(new Point(0, 0), Size));
-			//		Font font = new Font("Arial", 16);
-			//		SolidBrush brushBlack = new SolidBrush(Color.Black);
-			//		e.Graphics.DrawString("I see a laser spot...", font, brushBlack, Width / 2 - 80, Height / 2 - 20);
-			//	} else
-   //         {
-//                e.Graphics.DrawImage(img, new Rectangle(new Point(0, 0), Size));
+			if (img != null) // && !pixelColor.robotLaserSpot(img)
+			if (pixelColor.isLaserSpot()) //  
+				{
+					e.Graphics.DrawImage(img, new Rectangle(new Point(0, 0), Size));
+					Font font = new Font("Arial", 16);
+					SolidBrush brushBlack = new SolidBrush(Color.Black);
+					e.Graphics.DrawString("I see a laser spot...", font, brushBlack, Width / 2 - 80, Height / 2 - 20);
+				}
+ //           {
+ //               e.Graphics.DrawImage(img, new Rectangle(new Point(0, 0), Size));
             //}
-//            else
+            else
             {
                 SolidBrush brushWhite = new SolidBrush(Color.White);
                 e.Graphics.FillRectangle(brushWhite, new Rectangle(new Point(0, 0), Size));
