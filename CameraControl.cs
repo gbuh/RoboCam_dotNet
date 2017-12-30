@@ -29,12 +29,13 @@ namespace rec.robotino.api2.examples.camera
 
 		void robot_ImageReceived(Robot sender, Image img)
 		{
-			if (pixelColor.robotLaserSpot(img))
+			int z = pixelColor.getLaserSpot(img);
+			if (pixelColor.isLaserSpot())
 			{
 				try
 				{
-					int z = 0;
-					z = pixelColor.getLaserSpot(img);
+					//int z = 0;
+					//z = pixelColor.getLaserSpot(img);
 					robot.drive(z);
 				}
 				catch (Exception e)
@@ -51,18 +52,18 @@ namespace rec.robotino.api2.examples.camera
         {
             base.OnPaint(e);
 
-			if (img != null) // && !pixelColor.robotLaserSpot(img)
-				if (pixelColor.robotLaserSpot(img)) //  
-				{
-					e.Graphics.DrawImage(img, new Rectangle(new Point(0, 0), Size));
-					Font font = new Font("Arial", 16);
-					SolidBrush brushBlack = new SolidBrush(Color.Black);
-					e.Graphics.DrawString("I see a laser spot...", font, brushBlack, Width / 2 - 80, Height / 2 - 20);
-				} else
-            {
-                e.Graphics.DrawImage(img, new Rectangle(new Point(0, 0), Size));
-            }
-            else
+//			if (img != null) // && !pixelColor.robotLaserSpot(img)
+			//if (pixelColor.isLaserSpot()) //  
+			//	{
+			//		e.Graphics.DrawImage(img, new Rectangle(new Point(0, 0), Size));
+			//		Font font = new Font("Arial", 16);
+			//		SolidBrush brushBlack = new SolidBrush(Color.Black);
+			//		e.Graphics.DrawString("I see a laser spot...", font, brushBlack, Width / 2 - 80, Height / 2 - 20);
+			//	} else
+   //         {
+//                e.Graphics.DrawImage(img, new Rectangle(new Point(0, 0), Size));
+            //}
+//            else
             {
                 SolidBrush brushWhite = new SolidBrush(Color.White);
                 e.Graphics.FillRectangle(brushWhite, new Rectangle(new Point(0, 0), Size));

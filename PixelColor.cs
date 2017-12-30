@@ -15,6 +15,7 @@ namespace rec.robotino.api2.examples.camera
 		private int height = 240;
 		private int porog = 200;
 		private int light = 200;
+		private bool laserSpot = false;
 		private Bitmap bitmapImg;
 
 		public Color getP() { return p; }
@@ -35,6 +36,8 @@ namespace rec.robotino.api2.examples.camera
 
 		public Bitmap getBitmapImg() { return bitmapImg; }
 
+		public bool isLaserSpot() { return laserSpot; }
+
 		public void setP(Color p) { this.p = p; }
 
 		//		public void setA(int a) { this.a = a; }
@@ -52,6 +55,8 @@ namespace rec.robotino.api2.examples.camera
 		public void setPorog(int porog) { this.porog = porog; }
 
 		public void setBitmapImg(Bitmap bitmapImg) { this.bitmapImg = bitmapImg; }
+
+		public void setLaserSpot(bool laserSpot) { this.laserSpot = laserSpot;}
 
 		public PixelColor()
 		{
@@ -74,7 +79,7 @@ namespace rec.robotino.api2.examples.camera
 		//	bitmapImg = (Bitmap)img;
 		//	bitmapImg.SetPixel(x, y, p);
 		//}
-
+/*
 		public bool robotLaserSpot(Image img)
 		{
 			unsafe
@@ -92,7 +97,7 @@ namespace rec.robotino.api2.examples.camera
 //						if ((ptr[y] > 200 && ptr[y + 1] > 120 && ptr[y + 1] < 150 && ptr[y + 2] > 120 && ptr[y + 2] < 150) == true)
 // 						for Robotino® SIM Demo: (ptr[z] > 200 && ptr[z + 1] < 10 && ptr[z + 2] < 10) == true) find red cylinder
 					{
-						bitmapImg.UnlockBits(bitmapData);
+//						bitmapImg.UnlockBits(bitmapData);
 						return true;
 					}
 				}
@@ -100,7 +105,7 @@ namespace rec.robotino.api2.examples.camera
 			}
 			return false;
 		}
-
+*/
 		public int getLaserSpot(Image img)
 		{
 			unsafe
@@ -118,6 +123,7 @@ namespace rec.robotino.api2.examples.camera
 					//						if ((ptr[y] > 200 && ptr[y + 1] > 120 && ptr[y + 1] < 150 && ptr[y + 2] > 120 && ptr[y + 2] < 150) == true)
 					// 						for Robotino® SIM Demo: (ptr[z] > 200 && ptr[z + 1] < 10 && ptr[z + 2] < 10) == true) find red cylinder
 					{
+						laserSpot = true;
 						bitmapImg.UnlockBits(bitmapData);
 //						int x = 0;
 						if (z <= 960)
@@ -130,9 +136,11 @@ namespace rec.robotino.api2.examples.camera
 //							x = (z % 960) / 3;
 //						Console.WriteLine("X = " + x);
 						Console.WriteLine("X = " + z);
+//						laserSpot = true;
 						return z;
 					}
 				}
+				laserSpot = false;
 				bitmapImg.UnlockBits(bitmapData);
 			}
 			return 0;

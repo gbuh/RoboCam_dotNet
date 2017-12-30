@@ -72,7 +72,7 @@ namespace rec.robotino.api2.examples.camera
 			{
 				deg = 0;
 			} 
-			else deg = (160 - z) * 0.28125f;
+			else deg = (160 - z) * 0.5625f; // 0.28125f
 			return deg;
 			//for (int i = 1; i <= 480; i += 2)
 			//{
@@ -129,7 +129,7 @@ namespace rec.robotino.api2.examples.camera
 				Thread.Sleep(100);
 			}
 			//    	float[] dir = new float[2];
-			float a = 0.2f;
+			float a = 1f;
 			driveForward(dir, dir, a);
 			omniDrive.setVelocity(dir[0], dir[1], 0.0f);
 		}
