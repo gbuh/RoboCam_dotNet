@@ -16,9 +16,7 @@ namespace rec.robotino.api2.examples.camera
     {
         protected readonly Robot robot;
         private volatile Image img;
- //       private Bitmap temp;
 		private PixelColor pixelColor = new PixelColor();
-//		private DrivelnCircles drivelnCircles = new DrivelnCircles();
         public CameraControl(Robot robot)
         {
             this.robot = robot;
@@ -34,9 +32,18 @@ namespace rec.robotino.api2.examples.camera
 			{
 				try
 				{
-					//int z = 0;
-					//z = pixelColor.getLaserSpot(img);
-					robot.drive(z);
+					robot.driveToLaserSpot(z);
+				}
+				catch (Exception e)
+				{
+					Console.WriteLine(e.ToString());
+				}
+			}
+			else
+			{
+				try
+				{
+					robot.driveInPlace();
 				}
 				catch (Exception e)
 				{
@@ -51,25 +58,25 @@ namespace rec.robotino.api2.examples.camera
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-
-			if (img != null) // && !pixelColor.robotLaserSpot(img)
-			if (pixelColor.isLaserSpot()) //  
+			Font font = new Font("Arial", 16);
+			SolidBrush brushBlack = new SolidBrush(Color.Black);
+			SolidBrush brushWhite = new SolidBrush(Color.White);
+			if (img != null)
+			{
+				if (pixelColor.isLaserSpot())
 				{
 					e.Graphics.DrawImage(img, new Rectangle(new Point(0, 0), Size));
-					Font font = new Font("Arial", 16);
-					SolidBrush brushBlack = new SolidBrush(Color.Black);
 					e.Graphics.DrawString("I see a laser spot...", font, brushBlack, Width / 2 - 80, Height / 2 - 20);
 				}
- //           {
- //               e.Graphics.DrawImage(img, new Rectangle(new Point(0, 0), Size));
-            //}
-            else
-            {
-                SolidBrush brushWhite = new SolidBrush(Color.White);
+				else 
+				{
+				    e.Graphics.DrawImage(img, new Rectangle(new Point(0, 0), Size));
+					e.Graphics.DrawString("Waiting for...", font, brushBlack, Width / 2 - 80, Height / 2 - 20);
+				}
+			}
+			else
+			{
                 e.Graphics.FillRectangle(brushWhite, new Rectangle(new Point(0, 0), Size));
-
-                Font font = new Font("Arial", 16);
-                SolidBrush brushBlack = new SolidBrush(Color.Black);
                 e.Graphics.DrawString("No camera image", font, brushBlack, Width / 2 - 80, Height / 2 - 20);
             }
         }

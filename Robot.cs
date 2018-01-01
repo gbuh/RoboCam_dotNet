@@ -111,27 +111,42 @@ namespace rec.robotino.api2.examples.camera
 			outArray[1] = inArray[1]; //y
 		}
 
-		public void drive(int z)
+		public void driveToLaserSpot(int z)
 		{
 			Console.WriteLine("Driving...");
 			int counter = 0;
 			float[] dir = new float[2];
-
+			float deg = 0;
+			float angularSpeed = 0;
+			float forwardSpeed = 1.0f;
 			while (com.isConnected() && false == bumper.value() && counter < 1)
-			{ //
-				float deg = 0;
-				float w = 0;
+			{
 				deg = getAngleToRotate(z);
-				w = getAngularSpeed(deg);
-				rotateInPlace(dir, w);
-				omniDrive.setVelocity(dir[0], dir[1], w);
+				angularSpeed = getAngularSpeed(deg);
+				rotateInPlace(dir, angularSpeed);
+				omniDrive.setVelocity(dir[0], dir[1], angularSpeed);
 				counter++;
 				Thread.Sleep(100);
 			}
-			//    	float[] dir = new float[2];
-			float a = 1.5f;
-			driveForward(dir, dir, a);
+			driveForward(dir, dir, forwardSpeed);
 			omniDrive.setVelocity(dir[0], dir[1], 0.0f);
+		}
+
+		public void driveInPlace()
+		{
+			Console.WriteLine("Rotate in place...");
+			int counter = 0;
+			float[] dir = new float[2];
+			float deg = 45;
+			float angularSpeed = 0;
+			while (com.isConnected() && false == bumper.value() && counter < 1)
+			{
+				angularSpeed = getAngularSpeed(deg);
+				rotateInPlace(dir, angularSpeed);
+				omniDrive.setVelocity(dir[0], dir[1], angularSpeed);
+				counter++;
+				Thread.Sleep(100);
+			}
 		}
 /////////////////////////////////////////////////////////////////////////
 
