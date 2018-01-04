@@ -119,17 +119,24 @@ namespace rec.robotino.api2.examples.camera
 			float deg = 0;
 			float angularSpeed = 0;
 			float forwardSpeed = 1.0f;
+			float rotateSpeedFactor = 1.0f;
 			while (com.isConnected() && false == bumper.value() && counter < 1)
 			{
 				deg = getAngleToRotate(z);
 				angularSpeed = getAngularSpeed(deg);
 				rotateInPlace(dir, angularSpeed);
+				angularSpeed = angularSpeed* rotateSpeedFactor;
 				omniDrive.setVelocity(dir[0], dir[1], angularSpeed);
 				counter++;
 				Thread.Sleep(100);
 			}
-			driveForward(dir, dir, forwardSpeed);
-			omniDrive.setVelocity(dir[0], dir[1], 0.0f);
+			if (z > 150 && z < 170)
+			{
+                driveForward(dir, dir, forwardSpeed);
+				omniDrive.setVelocity(dir[0], dir[1], 0.0f);
+			}
+			//driveForward(dir, dir, forwardSpeed);
+			//omniDrive.setVelocity(dir[0], dir[1], 0.0f);
 		}
 
 		public void driveInPlace()

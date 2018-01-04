@@ -14,7 +14,7 @@ namespace rec.robotino.api2.examples.camera
 		private int width = 320;
 		private int height = 240;
 		private int porog = 200;
-		private int light = 200;
+//		private int light = 200;
 		private bool laserSpot = false;
 		private Bitmap bitmapImg;
 
@@ -116,9 +116,9 @@ namespace rec.robotino.api2.examples.camera
 				byte* ptr = (byte*)bitmapData.Scan0;
 				int byteperpixel = Bitmap.GetPixelFormatSize(bitmapImg.PixelFormat);
 
-				for (int z = 0; z < (width * height * 3); z += 3)
+				for (int z = 0; z < (img.Width * img.Height * 3); z += 3)
 				{
-					if ((ptr[z] < 10 && ptr[z + 1] < 10 && ptr[z + 2] > 200) == true)
+					if ((ptr[z] > 110 && ptr[z] < 160 && ptr[z + 1] > 110 && ptr[z + 1] < 160 && ptr[z + 2] > 200) == true)
 					//	((ptr[z] > 120 && ptr[z] < 150 && ptr[z + 1] > 120 && ptr[z + 1] < 150 && ptr[z + 2] > 200) == true) find red laser spot
 					//	((ptr[y] > 200 && ptr[y + 1] > 120 && ptr[y + 1] < 150 && ptr[y + 2] > 120 && ptr[y + 2] < 150) == true) find blue laser spot
 					//  for Robotino® SIM Demo: (ptr[z] < 10 && ptr[z + 1] < 10 && ptr[z + 2] > 200) == true) find red cylinder

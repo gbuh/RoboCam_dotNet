@@ -17,6 +17,9 @@ namespace rec.robotino.api2.examples.camera
         protected readonly Robot robot;
         private volatile Image img;
 		private PixelColor pixelColor = new PixelColor();
+		Font font = new Font("Arial", 16);
+		SolidBrush brushBlack = new SolidBrush(Color.Black);
+		SolidBrush brushWhite = new SolidBrush(Color.White);
         public CameraControl(Robot robot)
         {
             this.robot = robot;
@@ -39,17 +42,17 @@ namespace rec.robotino.api2.examples.camera
 					Console.WriteLine(e.ToString());
 				}
 			}
-			else
-			{
-				try
-				{
-					robot.driveInPlace();
-				}
-				catch (Exception e)
-				{
-					Console.WriteLine(e.ToString());
-				}
-			}
+			//else
+			//{
+			//	try
+			//	{
+			//		robot.driveInPlace();
+			//	}
+			//	catch (Exception e)
+			//	{
+			//		Console.WriteLine(e.ToString());
+			//	}
+			//}
 			this.img = img;
 			if (this.InvokeRequired)
 				this.Invoke(new MethodInvoker(Invalidate));
@@ -58,19 +61,19 @@ namespace rec.robotino.api2.examples.camera
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-			Font font = new Font("Arial", 16);
-			SolidBrush brushBlack = new SolidBrush(Color.Black);
-			SolidBrush brushWhite = new SolidBrush(Color.White);
+			//Font font = new Font("Arial", 16);
+			//SolidBrush brushBlack = new SolidBrush(Color.Black);
+			//SolidBrush brushWhite = new SolidBrush(Color.White);
 			if (img != null)
 			{
 				if (pixelColor.isLaserSpot())
 				{
-					e.Graphics.DrawImage(img, new Rectangle(new Point(0, 0), Size));
+					//e.Graphics.DrawImage(img, new Rectangle(new Point(0, 0), Size));
 					e.Graphics.DrawString("I see a laser spot...", font, brushBlack, Width / 2 - 80, Height / 2 - 20);
 				}
 				else 
 				{
-				    e.Graphics.DrawImage(img, new Rectangle(new Point(0, 0), Size));
+				    //e.Graphics.DrawImage(img, new Rectangle(new Point(0, 0), Size));
 					e.Graphics.DrawString("Waiting for...", font, brushBlack, Width / 2 - 80, Height / 2 - 20);
 				}
 			}
