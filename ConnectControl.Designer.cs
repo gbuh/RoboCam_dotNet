@@ -48,7 +48,7 @@ namespace rec.robotino.api2.examples.camera
             this.textBoxHostname.Name = "textBoxHostname";
             this.textBoxHostname.Size = new System.Drawing.Size(100, 20);
             this.textBoxHostname.TabIndex = 1;
-            this.textBoxHostname.Text = "127.0.0.1"; // "172.26.1.1" or "127.0.0.1"
+            this.textBoxHostname.Text = "172.26.1.1"; // "172.26.1.1" or "127.0.0.1"
             // 
             // ConnectControl
             // 
