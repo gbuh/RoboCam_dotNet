@@ -5,12 +5,13 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.Camera PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CameraControl.cs">
     <Files>
-      <File FileName="Program.cs" Line="29" Column="22" />
-      <File FileName="PixelColor.cs" Line="26" Column="3" />
-      <File FileName="Robot.cs" Line="142" Column="71" />
-      <File FileName="CameraControl.cs" Line="57" Column="3" />
+      <File FileName="Program.cs" Line="22" Column="3" />
+      <File FileName="PixelColor.cs" Line="125" Column="113" />
+      <File FileName="Robot.cs" Line="10" Column="2" />
+      <File FileName="CameraControl.cs" Line="76" Column="1" />
+      <File FileName="ConnectControl.Designer.cs" Line="51" Column="51" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MultiItemStartupConfigurations />

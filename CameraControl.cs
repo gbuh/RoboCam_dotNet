@@ -30,18 +30,18 @@ namespace rec.robotino.api2.examples.camera
 
 		void robot_ImageReceived(Robot sender, Image img)
 		{
-			int z = pixelColor.getLaserSpot(img);
-			if (pixelColor.isLaserSpot())
-			{
-				try
-				{
-					robot.driveToLaserSpot(z);
-				}
-				catch (Exception e)
-				{
-					Console.WriteLine(e.ToString());
-				}
-			}
+			//int z = pixelColor.getLaserSpot(img);
+			//if (pixelColor.isLaserSpot())
+			//{
+			//	try
+			//	{
+			//		robot.driveToLaserSpot(z);
+			//	}
+			//	catch (Exception e)
+			//	{
+			//		Console.WriteLine(e.ToString());
+			//	}
+			//}
 			//else
 			//{
 			//	try
@@ -66,15 +66,15 @@ namespace rec.robotino.api2.examples.camera
 			//SolidBrush brushWhite = new SolidBrush(Color.White);
 			if (img != null)
 			{
-				if (pixelColor.isLaserSpot())
+				//if (pixelColor.isLaserSpot())
+				//{
+				//	//e.Graphics.DrawImage(img, new Rectangle(new Point(0, 0), Size));
+				//	e.Graphics.DrawString("I see a laser spot...", font, brushBlack, Width / 2 - 80, Height / 2 - 20);
+				//}
+				//else 
 				{
-					//e.Graphics.DrawImage(img, new Rectangle(new Point(0, 0), Size));
-					e.Graphics.DrawString("I see a laser spot...", font, brushBlack, Width / 2 - 80, Height / 2 - 20);
-				}
-				else 
-				{
-				    //e.Graphics.DrawImage(img, new Rectangle(new Point(0, 0), Size));
-					e.Graphics.DrawString("Waiting for...", font, brushBlack, Width / 2 - 80, Height / 2 - 20);
+				    e.Graphics.DrawImage(img, new Rectangle(new Point(0, 0), Size));
+					//e.Graphics.DrawString("Waiting for...", font, brushBlack, Width / 2 - 80, Height / 2 - 20);
 				}
 			}
 			else

@@ -118,9 +118,9 @@ namespace rec.robotino.api2.examples.camera
 
 				for (int z = 0; z < (img.Width * img.Height * 3); z += 3)
 				{
-					if ((ptr[z] > 110 && ptr[z] < 160 && ptr[z + 1] > 110 && ptr[z + 1] < 160 && ptr[z + 2] > 200) == true)
-					//	((ptr[z] > 120 && ptr[z] < 150 && ptr[z + 1] > 120 && ptr[z + 1] < 150 && ptr[z + 2] > 200) == true) find red laser spot
-					//	((ptr[y] > 200 && ptr[y + 1] > 120 && ptr[y + 1] < 150 && ptr[y + 2] > 120 && ptr[y + 2] < 150) == true) find blue laser spot
+					if ((ptr[z] > 200 && ptr[z + 1] > 110 && ptr[z + 1] < 160 && ptr[z + 2] > 110 && ptr[z + 2] < 160) == true)
+					// find red laser spot
+					//	((ptr[z] > 110 && ptr[z] < 160 && ptr[z + 1] > 110 && ptr[z + 1] < 160 && ptr[z + 2] > 200) == true) find blue laser spot
 					//  for Robotino® SIM Demo: (ptr[z] < 10 && ptr[z + 1] < 10 && ptr[z + 2] > 200) == true) find red cylinder
 					//	for Robotino® SIM Demo: (ptr[z] > 200 && ptr[z + 1] < 10 && ptr[z + 2] < 10) == true) find blue cylinder
 					{

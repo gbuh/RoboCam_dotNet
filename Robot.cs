@@ -107,7 +107,7 @@ namespace rec.robotino.api2.examples.camera
 
 		public void driveForward(float[] inArray, float[] outArray, float a)
 		{
-			outArray[0] = inArray[0] + a; //x mit a
+			outArray[0] = inArray[0] + a; //x plus a
 			outArray[1] = inArray[1]; //y
 		}
 
@@ -125,7 +125,7 @@ namespace rec.robotino.api2.examples.camera
 				deg = getAngleToRotate(z);
 				angularSpeed = getAngularSpeed(deg);
 				rotateInPlace(dir, angularSpeed);
-				angularSpeed = angularSpeed* rotateSpeedFactor;
+				angularSpeed = angularSpeed * rotateSpeedFactor;
 				omniDrive.setVelocity(dir[0], dir[1], angularSpeed);
 				counter++;
 				Thread.Sleep(100);
@@ -208,7 +208,7 @@ namespace rec.robotino.api2.examples.camera
             {
                 this.robot = robot;
                 setCameraNumber(0);
-                setBGREnabled(true); ////////////////////////////////////////////////
+                setBGREnabled(false); ////////////////////////////////////////////////
             }
 
             public override void imageReceivedEvent(Image data, uint dataSize, uint width, uint height, uint step)
